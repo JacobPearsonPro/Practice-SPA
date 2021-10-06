@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
 import Navigo from "navigo";
@@ -33,7 +34,7 @@ router
   .on({
     "/": () => render(state.Home),
     ":page": params => {
-    let page = capitalize(params.page);
+      let page = capitalize(params.page);
       render(state[page]);
     }
   })
@@ -47,9 +48,7 @@ function render(st) {
     ${Footer()}
   `;
   router.updatePageLinks();
-
 }
-
 
 // add menu toggle to bars icon in nav bar
 document.querySelector(".fa-bars").addEventListener("click", () => {
